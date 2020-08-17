@@ -1,16 +1,20 @@
-# Пример использования es modules в node.js
+# Example of es modules usage in node.js
 
-## установка
+## install
 ```bash
 npm ci
 ```
 
-## запуск
+## run
 ```bash
 npm start
 ```
 
-## проверка
+## check
 ```bash
 curl http://localhost:3000
 ```
+
+### issues in popular packages:
+
+lodash - https://github.com/lodash/lodash/issues/4800
