@@ -5,6 +5,11 @@
 npm ci
 ```
 
+## patch
+```
+npm run patch
+```
+
 ## run
 ```bash
 npm start
