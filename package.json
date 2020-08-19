@@ -5,17 +5,24 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon --experimental-specifier-resolution=node index.js"
+    "start": "nodemon --experimental-specifier-resolution=node index.js",
+    "start:cjs": "nodemon --experimental-specifier-resolution=node index.cjs",
+    "check": "curl http://localhost:3000",
+    "patch": "node --experimental-specifier-resolution=node ./patches/patch.js"
   },
-  "author": "",
+  "author": "Dmitrii Kanatnikov",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
-    "lodash": "^4.17.19",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "express": "4.17.1",
+    "lodash": "4.17.19",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-redux": "7.2.1",
+    "redux": "4.0.5",
+    "redux-saga": "1.1.3"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "nodemon": "2.0.4",
+    "patch-package": "6.2.2"
   }
 }

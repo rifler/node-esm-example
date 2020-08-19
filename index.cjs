@@ -1,9 +1,10 @@
-import express from 'express';
-import React from 'react';
-import ReactDOMServer from 'react-dom/server';
-import _ from 'lodash';
-import { take } from 'redux-saga/effects';
-import { RootApp } from './App';
+const express = require('express');
+const React = require('react');
+const ReactDOMServer = require('react-dom/server');
+const _ = require("lodash");
+const {take} = require("redux-saga/effects");
+const { RootApp } = require('./App/index.cjs');
+
 
 const app = express();
 
