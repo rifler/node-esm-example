@@ -1,0 +1,125 @@
+diff --git a/node_modules/react-redux/es/components/Provider.js b/node_modules/react-redux/es/components/Provider.js
+index 376ddb5..8413e7b 100644
+--- a/node_modules/react-redux/es/components/Provider.js
++++ b/node_modules/react-redux/es/components/Provider.js
+@@ -1,8 +1,10 @@
+-import React, { useMemo, useEffect } from 'react';
++import React from 'react';
+ import PropTypes from 'prop-types';
+ import { ReactReduxContext } from './Context';
+ import Subscription from '../utils/Subscription';
+ 
++const { useMemo, useEffect } = React;
++
+ function Provider(_ref) {
+   var store = _ref.store,
+       context = _ref.context,
+diff --git a/node_modules/react-redux/es/components/connectAdvanced.js b/node_modules/react-redux/es/components/connectAdvanced.js
+index 301104d..2eef177 100644
+--- a/node_modules/react-redux/es/components/connectAdvanced.js
++++ b/node_modules/react-redux/es/components/connectAdvanced.js
+@@ -1,12 +1,15 @@
+ import _extends from "@babel/runtime/helpers/esm/extends";
+ import _objectWithoutPropertiesLoose from "@babel/runtime/helpers/esm/objectWithoutPropertiesLoose";
+ import hoistStatics from 'hoist-non-react-statics';
+-import React, { useContext, useMemo, useRef, useReducer } from 'react';
+-import { isValidElementType, isContextConsumer } from 'react-is';
++import React from 'react';
++import ReactIS from 'react-is';
+ import Subscription from '../utils/Subscription';
+ import { useIsomorphicLayoutEffect } from '../utils/useIsomorphicLayoutEffect';
+ import { ReactReduxContext } from './Context'; // Define some constant arrays just to avoid re-creating these
+ 
++const { useContext, useMemo, useRef, useReducer } = React;
++const { isValidElementType, isContextConsumer } = ReactIS;
++
+ var EMPTY_ARRAY = [];
+ var NO_SUBSCRIPTION_ARRAY = [null, null];
+ 
+diff --git a/node_modules/react-redux/es/hooks/useReduxContext.js b/node_modules/react-redux/es/hooks/useReduxContext.js
+index 575677b..fdaf607 100644
+--- a/node_modules/react-redux/es/hooks/useReduxContext.js
++++ b/node_modules/react-redux/es/hooks/useReduxContext.js
+@@ -1,5 +1,6 @@
+-import { useContext } from 'react';
++import React from 'react';
+ import { ReactReduxContext } from '../components/Context';
++const { useContext } = React;
+ /**
+  * A hook to access the value of the `ReactReduxContext`. This is a low-level
+  * hook that you should usually not need to call directly.
+diff --git a/node_modules/react-redux/es/hooks/useSelector.js b/node_modules/react-redux/es/hooks/useSelector.js
+index 291e4a2..7031004 100644
+--- a/node_modules/react-redux/es/hooks/useSelector.js
++++ b/node_modules/react-redux/es/hooks/useSelector.js
+@@ -1,9 +1,11 @@
+-import { useReducer, useRef, useMemo, useContext, useDebugValue } from 'react';
++import React from 'react';
+ import { useReduxContext as useDefaultReduxContext } from './useReduxContext';
+ import Subscription from '../utils/Subscription';
+ import { useIsomorphicLayoutEffect } from '../utils/useIsomorphicLayoutEffect';
+ import { ReactReduxContext } from '../components/Context';
+ 
++const { useReducer, useRef, useMemo, useContext, useDebugValue } = React;
++
+ var refEquality = function refEquality(a, b) {
+   return a === b;
+ };
+diff --git a/node_modules/react-redux/es/hooks/useStore.js b/node_modules/react-redux/es/hooks/useStore.js
+index 43a81a4..51c7cfe 100644
+--- a/node_modules/react-redux/es/hooks/useStore.js
++++ b/node_modules/react-redux/es/hooks/useStore.js
+@@ -1,6 +1,8 @@
+-import { useContext } from 'react';
++import React from 'react';
+ import { ReactReduxContext } from '../components/Context';
+ import { useReduxContext as useDefaultReduxContext } from './useReduxContext';
++
++const { useContext } = React;
+ /**
+  * Hook factory, which creates a `useStore` hook bound to a given context.
+  *
+diff --git a/node_modules/react-redux/es/utils/reactBatchedUpdates.js b/node_modules/react-redux/es/utils/reactBatchedUpdates.js
+index 0a75f7f..4900660 100644
+--- a/node_modules/react-redux/es/utils/reactBatchedUpdates.js
++++ b/node_modules/react-redux/es/utils/reactBatchedUpdates.js
+@@ -1,2 +1,6 @@
++import ReactDOM from 'react-dom';
++
++const { unstable_batchedUpdates } = ReactDOM;
++
+ /* eslint-disable import/no-unresolved */
+-export { unstable_batchedUpdates } from 'react-dom';
+\ No newline at end of file
++export { unstable_batchedUpdates };
+\ No newline at end of file
+diff --git a/node_modules/react-redux/es/utils/useIsomorphicLayoutEffect.js b/node_modules/react-redux/es/utils/useIsomorphicLayoutEffect.js
+index 2242a85..6fb4fe7 100644
+--- a/node_modules/react-redux/es/utils/useIsomorphicLayoutEffect.js
++++ b/node_modules/react-redux/es/utils/useIsomorphicLayoutEffect.js
+@@ -1,4 +1,4 @@
+-import { useEffect, useLayoutEffect } from 'react'; // React currently throws a warning when using useLayoutEffect on the server.
++import React from 'react'; // React currently throws a warning when using useLayoutEffect on the server.
+ // To get around it, we can conditionally useEffect on the server (no-op) and
+ // useLayoutEffect in the browser. We need useLayoutEffect to ensure the store
+ // subscription callback always has the selector from the latest render commit
+@@ -6,5 +6,5 @@ import { useEffect, useLayoutEffect } from 'react'; // React currently throws a
+ // which may cause missed updates; we also must ensure the store subscription
+ // is created synchronously, otherwise a store update may occur before the
+ // subscription is created and an inconsistent state may be observed
+-
++const { useEffect, useLayoutEffect } = React;
+ export var useIsomorphicLayoutEffect = typeof window !== 'undefined' && typeof window.document !== 'undefined' && typeof window.document.createElement !== 'undefined' ? useLayoutEffect : useEffect;
+\ No newline at end of file
+diff --git a/node_modules/react-redux/es/utils/useIsomorphicLayoutEffect.native.js b/node_modules/react-redux/es/utils/useIsomorphicLayoutEffect.native.js
+index 2137cb1..e5bb2b1 100644
+--- a/node_modules/react-redux/es/utils/useIsomorphicLayoutEffect.native.js
++++ b/node_modules/react-redux/es/utils/useIsomorphicLayoutEffect.native.js
+@@ -1,3 +1,5 @@
+-import { useLayoutEffect } from 'react'; // Under React Native, we know that we always want to use useLayoutEffect
++import React from 'react'; // Under React Native, we know that we always want to use useLayoutEffect
++
++const { useLayoutEffect } = React;
+ 
+ export var useIsomorphicLayoutEffect = useLayoutEffect;
+\ No newline at end of file

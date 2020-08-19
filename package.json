@@ -8,7 +8,7 @@
     "start": "nodemon --experimental-specifier-resolution=node index.js",
     "start:cjs": "nodemon --experimental-specifier-resolution=node index.cjs",
     "check": "curl http://localhost:3000",
-    "patch": "node --experimental-specifier-resolution=node ./patches/patch.js"
+    "patch": "node --experimental-specifier-resolution=node ./patches/patch.js && patch-package"
   },
   "author": "Dmitrii Kanatnikov",
   "license": "ISC",
