@@ -73,6 +73,52 @@ const patchesPackageJson = [
             },
         },
     },
+    {
+        to: 'styled-components',
+        content: {
+            type: 'module',
+            exports: {
+                '.': './dist/styled-components.esm.js',
+            },
+        },
+    },
+    {
+        to: '@emotion/is-prop-valid',
+        content: {
+            type: 'module',
+            exports: {
+                '.': './dist/is-prop-valid.esm.js'
+            },
+        }
+    },
+    {
+        to: '@emotion/memoize',
+        content: {
+            type: 'module',
+            exports: {
+                '.': './dist/memoize.esm.js'
+            },
+        }
+    },
+    {
+        to: '@emotion/stylis',
+        content: {
+            type: 'module',
+            exports: {
+                '.': './dist/stylis.esm.js'
+            },
+        }
+    },
+    {
+        to: '@emotion/unitless',
+        content: {
+            type: 'module',
+            exports: {
+                '.': './dist/unitless.esm.js'
+            },
+        }
+    }
 ];
 
+// dist/unitless.esm.js
 export { patchesPackageJson };

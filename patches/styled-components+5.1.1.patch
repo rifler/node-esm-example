@@ -1,0 +1,14 @@
+diff --git a/node_modules/styled-components/dist/styled-components.esm.js b/node_modules/styled-components/dist/styled-components.esm.js
+index ce9b4e4..fd12462 100644
+--- a/node_modules/styled-components/dist/styled-components.esm.js
++++ b/node_modules/styled-components/dist/styled-components.esm.js
+@@ -1,5 +1,7 @@
+-import { typeOf, isElement, isValidElementType } from 'react-is';
+-import React, { useState, useContext, useMemo, useEffect, useRef, createElement, useDebugValue } from 'react';
++import ReactIS from 'react-is';
++const { typeOf, isElement, isValidElementType } = ReactIS;
++import React from 'react';
++const { useState, useContext, useMemo, useEffect, useRef, createElement, useDebugValue } = React;
+ import shallowequal from 'shallowequal';
+ import Stylis from '@emotion/stylis';
+ import unitless from '@emotion/unitless';
