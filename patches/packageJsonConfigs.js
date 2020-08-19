@@ -120,5 +120,4 @@ const patchesPackageJson = [
     }
 ];
 
-// dist/unitless.esm.js
 export { patchesPackageJson };
