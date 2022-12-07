@@ -13,7 +13,7 @@
   "author": "Dmitrii Kanatnikov",
   "license": "ISC",
   "dependencies": {
-    "express": "4.17.1",
+    "express": "4.18.2",
     "lodash": "4.17.21",
     "react": "16.13.1",
     "react-dom": "16.13.1",
